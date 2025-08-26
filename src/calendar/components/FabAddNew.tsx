@@ -24,7 +24,7 @@ export const FabAddNew = () => {
 
     return (
         <button
-            className="btn btn-primary"
+            className="btn btn-primary fab-add"
             onClick={handleClickNew}
         >
             <i className="fa-solid fa-plus"></i>
