@@ -11,7 +11,7 @@ export const CalendarEvent = ({ event }: CalendarEventProps) => {
     return (
         <>
             <strong>{title}</strong>
-            <span> - {user.name}</span>
+            <span> - {user!.name}</span>
         </>
     )
 }

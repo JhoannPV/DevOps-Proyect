@@ -39,6 +39,24 @@
   padding: 10px;
 }
 
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(50px);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1.1) translateY(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
 /* FABS */
 .fab-add {
   border-radius: 100% !important;
@@ -49,4 +67,53 @@
   right: 25px;
   width: 50px;
   height: 50px;
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fab-add.show {
+  opacity: 1;
+  pointer-events: auto;
+  animation: bounceIn 0.4s ease;
+}
+
+.fab-cancel-select {
+  border-radius: 100% !important;
+  bottom: 80px;
+  font-size: 30px;
+  padding: 25px;
+  position: fixed;
+  left: 25px;
+  width: 50px;
+  height: 50px;
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fab-cancel-select.show {
+  opacity: 1;
+  pointer-events: auto;
+  animation: bounceIn 0.4s ease;
+}
+
+.fab-danger {
+  border-radius: 100% !important;
+  bottom: 25px;
+  font-size: 30px;
+  padding: 25px;
+  position: fixed;
+  left: 25px;
+  width: 50px;
+  height: 50px;
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fab-danger.show {
+  opacity: 1;
+  pointer-events: auto;
+  animation: bounceIn 0.4s ease;
 }

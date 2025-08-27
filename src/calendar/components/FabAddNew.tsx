@@ -3,7 +3,7 @@ import { useCalendarStore, useUiStore } from "../../hooks"
 
 export const FabAddNew = () => {
 
-    const { openDateModal } = useUiStore();
+    const { isDateModalOpen, openDateModal } = useUiStore();
     const { setActiveEvent } = useCalendarStore();
 
     const handleClickNew = () => {
@@ -24,10 +24,15 @@ export const FabAddNew = () => {
 
     return (
         <button
-            className="btn btn-primary fab-add"
+            className="btn btn-primary fab-add show"
             onClick={handleClickNew}
+            style={
+                {
+                    display: isDateModalOpen ? 'none' : ''
+                }
+            }
         >
-            <i className="fa-solid fa-plus"></i>
+            <i className="fas fa-plus"></i>
         </button>
     )
 }

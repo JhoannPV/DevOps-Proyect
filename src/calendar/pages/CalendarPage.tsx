@@ -2,10 +2,11 @@ import { useState } from 'react'
 import { Calendar, type View } from 'react-big-calendar'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 
-import { CalendarEvent, CalendarModal, FabAddNew, Navbar, type CalendarEventData } from ".."
+import { CalendarEvent, CalendarModal, FabAddNew, FabDelete, Navbar, type CalendarEventData } from ".."
 
 import { localizer, getMessagesES } from '../../helpers'
 import { useCalendarStore, useUiStore } from '../../hooks'
+import { FabCancelSelect } from '../components/FabCancelSelect'
 
 
 export const CalendarPage = () => {
@@ -13,7 +14,7 @@ export const CalendarPage = () => {
     const { openDateModal } = useUiStore();
     const [lastView, setLastView] = useState<View>((localStorage.getItem('lastView') || 'week') as View);
 
-    const eventStyleGetter = (event: CalendarEventData, start: Date, end: Date, isSelected: boolean) => {
+    const eventStyleGetter = () => {
 
         const style = {
             backgroundColor: '#347CF7',
@@ -64,6 +65,8 @@ export const CalendarPage = () => {
             />
             <CalendarModal />
             <FabAddNew />
+            <FabDelete />
+            <FabCancelSelect />
         </>
     )
 }
