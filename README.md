@@ -1,69 +1,66 @@
-# React + TypeScript + Vite
+# Definición del Proyecto
+Este proyecto tiene como objetivo desarrollar una aplicación web para la gestión de eventos. La aplicación permitirá a los usuarios crear, editar, eliminar y organizar sus eventos de manera eficiente.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Tecnologías Utilizadas
+- **Frontend**: React.js + Vite + Typescript, CSS, HTML, Bootstrap, React Router, FontAwesome, Redux Toolkit, Axios.
+- **Backend**: Node.js + Express, MongoDB, Mongoose, JWT para autenticación, usando Clean Architecture.
+Este backend no esta directamente conectado al frontend, se ejecuta de manera independiente. y el frontend se conecta a el mediante peticiones HTTP.
+- **Despliegue**: Docker, Railway.
+- **Control de Versiones**: Git y GitHub.
 
-Currently, two official plugins are available:
+# Estructura del Proyecto
+El proyecto tiene la siguiente estructura de carpetas:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+/ (raíz del proyecto)
+  ├── README.md            # Documentación del proyecto
+  ├── package.json         # Dependencias y scripts del proyecto
+  ├── tsconfig.json        # Configuración de TypeScript
+  ├── vite.config.ts       # Configuración de Vite
+  ├── public/              # Archivos públicos (index.html, favicon, etc.)
+  ├── index.html           # Archivo HTML principal
+  └──src/
+    ├── assets/            # Recursos estáticos (imágenes, fuentes, etc.)
+    ├── auth/              # Módulo de autenticación
+    ├── calendar/          # Módulo de calendario
+    ├── helpers/           # Funciones auxiliares
+    ├── hooks/             # Custom hooks de React
+    ├── routes/            # Definición de rutas de la aplicación
+    ├── store/             # Configuración de Redux Toolkit
+    ├── styles.css         # Estilos globales
+    ├── CalendarApp.tsx    # Componente principal de la aplicación
+    └── main.tsx           # Punto de entrada de la aplicación           
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+# Instalación y Ejecución
+1. Requisitos previos:
+   - Node.js (versión 14 o superior)
+   - Yarn (se activa con el Corepack de Node.js)
+     Ejemplo para activar Corepack:
+     ```bash
+      corepack enable
+      corepack prepare yarn@stable --activate
+     ```
+
+1. Clona el repositorio:
+   ```bash
+    git clone https://github.com/JhoannPV/DevOps-Proyect.git
+    cd DevOps-Proyect
+    ```
+2. Instala las dependencias:
+   ```bash
+    yarn install
+   ``` 
+3. Ejecuta la aplicación en modo desarrollo:
+   ```bash
+    yarn dev
+   ```
+4. Abre tu navegador y visita `http://localhost:5173` para ver la aplicación en funcionamiento.
+5. Para construir la aplicación para producción:
+   ```bash
+    yarn build
+   ```
+6. Para previsualizar la aplicación construida:
+   ```bash
+    yarn preview
+   ```
