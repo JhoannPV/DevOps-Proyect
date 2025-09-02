@@ -12,6 +12,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.0.0",
     "@reduxjs/toolkit": "^2.8.2",
+    "axios": "^1.11.0",
     "bootstrap": "5.3.7",
     "date-fns": "^4.1.0",
     "react": "^19.1.1",
