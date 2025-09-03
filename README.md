@@ -42,25 +42,29 @@ El proyecto tiene la siguiente estructura de carpetas:
       corepack prepare yarn@stable --activate
      ```
 
-1. Clona el repositorio:
+2. Clona el repositorio:
    ```bash
     git clone https://github.com/JhoannPV/DevOps-Proyect.git
     cd DevOps-Proyect
     ```
-2. Instala las dependencias:
+
+3. Renombra el archivo `.env.template` a `.env` y ajusta las variables de entorno según sea necesario.
+
+4. Instala las dependencias:
    ```bash
     yarn install
    ``` 
-3. Ejecuta la aplicación en modo desarrollo:
+5. Ejecuta la aplicación en modo desarrollo:
    ```bash
     yarn dev
    ```
-4. Abre tu navegador y visita `http://localhost:5173` para ver la aplicación en funcionamiento.
-5. Para construir la aplicación para producción:
+6. Abre tu navegador y visita `http://localhost:5173` para ver la aplicación en funcionamiento.
+
+7. Para construir la aplicación para producción:
    ```bash
     yarn build
    ```
-6. Para previsualizar la aplicación construida:
+8. Para previsualizar la aplicación construida:
    ```bash
     yarn preview
    ```
