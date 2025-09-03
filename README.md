@@ -68,3 +68,13 @@ El proyecto tiene la siguiente estructura de carpetas:
    ```bash
     yarn preview
    ```
+
+# ¿Cómo Funciona?
+
+1. Con el boton __+__ puedes crear un nuevo evento.
+2. Al hacer click en un evento aparecerá un botón que te permitirá eliminarlo.
+3. Si haces doble click en un evento podrás editarlo.
+4. Puedes cambiar la vista del calendario entre día, semana, mes y agenda.
+5. Los eventos se guardan en el backend y se cargan automáticamente al iniciar sesión.
+6. Puedes cerrar sesión con el botón de "Logout" en la esquina superior derecha.
+7. Es un calendario compartido, todos los usuarios ven los mismos eventos, pero solo pueden editar o eliminar los eventos que ellos han creado.

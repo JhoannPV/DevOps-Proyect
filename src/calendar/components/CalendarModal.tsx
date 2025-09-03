@@ -34,7 +34,7 @@ export const CalendarModal = () => {
     const { isDateModalOpen, closeDateModal } = useUiStore();
     const [formSubmitted, setFormSubmitted] = useState(false);
 
-    const [formValues, setFormValues] = useState({
+    const [formValues, setFormValues] = useState<CalendarEventData>({
         title: '',
         notes: '',
         start: new Date(),
@@ -52,7 +52,7 @@ export const CalendarModal = () => {
 
     useEffect(() => {
         if (activeEvent !== null) {
-            setFormValues({ ...activeEvent as CalendarEventData })
+            setFormValues({ ...activeEvent as CalendarEventData });
         }
 
     }, [activeEvent])
@@ -112,7 +112,7 @@ export const CalendarModal = () => {
                     <label>Fecha y hora inicio</label>
                     <br />
                     <DatePicker
-                        selected={formValues.start}
+                        selected={formValues.start as Date}
                         onChange={(event) => onDateChange(event, 'start')}
                         className='form-control'
                         dateFormat="Pp"
@@ -126,8 +126,8 @@ export const CalendarModal = () => {
                     <label>Fecha y hora fin</label>
                     <br />
                     <DatePicker
-                        minDate={formValues.start}
-                        selected={formValues.end}
+                        minDate={formValues.start as Date}
+                        selected={formValues.end as Date}
                         onChange={(event) => onDateChange(event, 'end')}
                         className='form-control'
                         dateFormat="Pp"
