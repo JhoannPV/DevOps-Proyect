@@ -48,7 +48,7 @@ El proyecto tiene la siguiente estructura de carpetas:
     cd DevOps-Proyect
     ```
 
-3. Renombra el archivo `.env.template` a `.env` y ajusta las variables de entorno según sea necesario.
+3. Renombra el archivo `.env.template` a `.env` y ajusta las variables de entorno según sea necesario. Para efectos puedes usar la variable de entorno por defecto que ya esta en el archivo `.env.template`.
 
 4. Instala las dependencias:
    ```bash

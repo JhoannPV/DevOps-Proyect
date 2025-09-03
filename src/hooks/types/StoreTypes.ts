@@ -13,7 +13,7 @@ export interface RegisterParams {
     password: string;
 }
 
-export interface ErrorResponseRegister {
+export interface ErrorResponse {
     response: {
         data?: {
             error: string

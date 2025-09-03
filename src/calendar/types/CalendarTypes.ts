@@ -1,12 +1,13 @@
+export interface User {
+    _id: string;
+    name: string;
+}
 export interface CalendarEventData {
-    _id?: number;
+    _id?: string;
     title: string;
     notes: string;
-    start: Date;
-    end: Date;
+    start: Date | string;
+    end: Date | string;
     bgColor?: string;
-    user?: {
-        _id: string;
-        name: string;
-    };
+    user?: User;
 }

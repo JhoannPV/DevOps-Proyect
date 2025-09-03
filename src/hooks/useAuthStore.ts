@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { calendarApi } from "../api";
-import { clearErrorMessage, onChecking, onLogin, onLogout } from "../store";
-import type { ErrorResponseLogin, ErrorResponseRegister, LoginParams, RegisterParams, RootState } from ".";
+import { clearErrorMessage, onChecking, onLogin, onLogout, onLogoutCalendar } from "../store";
+import type { ErrorResponse, ErrorResponseLogin, LoginParams, RegisterParams, RootState } from ".";
 
 export const useAuthStore = () => {
 
@@ -14,7 +14,7 @@ export const useAuthStore = () => {
             const { data } = await calendarApi.post('/auth/login', { email, password });
             localStorage.setItem('token', data.token);
             localStorage.setItem('token-init-date', new Date().getTime().toString());
-            dispatch(onLogin({ name: data.user.name, id: data.user.id }));
+            dispatch(onLogin({ name: data.user.name, _id: data.user.id }));
         } catch (error) {
             const { response } = error as ErrorResponseLogin;
             const msgEmail: string = response.data?.errors.email?.msg || '';
@@ -34,9 +34,9 @@ export const useAuthStore = () => {
             const { data } = await calendarApi.post('/auth/register', { name, email, password });
             localStorage.setItem('token', data.token);
             localStorage.setItem('token-init-date', new Date().getTime().toString());
-            dispatch(onLogin({ name: data.user.name, id: data.user.id }));
+            dispatch(onLogin({ name: data.user.name, _id: data.user.id }));
         } catch (error) {
-            const { response } = error as ErrorResponseRegister;
+            const { response } = error as ErrorResponse;
             dispatch(onLogout(response.data?.error) || '');
             setTimeout(() => {
                 dispatch(clearErrorMessage());
@@ -51,9 +51,9 @@ export const useAuthStore = () => {
             const { data } = await calendarApi.get('/auth/renew-token');
             localStorage.setItem('token', data.token);
             localStorage.setItem('token-init-date', new Date().getTime().toString());
-            dispatch(onLogin({ name: data.user.name, id: data.user.id }));
+            dispatch(onLogin({ name: data.user.name, _id: data.user.id }));
         } catch (error) {
-            const { response } = error as ErrorResponseRegister;
+            const { response } = error as ErrorResponse;
             localStorage.clear();
             dispatch(onLogout(response.data?.error || ''));
         }
@@ -61,6 +61,7 @@ export const useAuthStore = () => {
 
     const startLogout = () => {
         localStorage.clear();
+        dispatch(onLogoutCalendar());
         dispatch(onLogout(undefined));
     }
 
